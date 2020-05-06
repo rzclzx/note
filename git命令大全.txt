@@ -1,0 +1,87 @@
+生成ssh
+ssh-keygen -t rsa -C "youremail@example.com"
+
+首次提交
+如果冲突 git pull origin master --allow-unrelated-histories
+git init
+git remote add origin git@gitlab.com:zhangfeizx/aaa.git
+git add .
+git commit -m 'message'
+git push -u origin master
+
+新加/更改远程地址
+	@新加：git remote add origin git@gitlab.com:zhangfeizx/aaa.git
+	@更改：git remote set-url origin http://192.168.100.235:9797/john/git_test.git
+
+
+一、分支..........................................
+
+查看分支
+git branch -a     
+
+切换分支
+git checkout aaa(切换)
+git checkout -b aaa（创建并切换）
+
+合并分支
+git merge dev（将dev合并到当前所在分支master）(解决冲突后提交信息为merge branch dev into master)
+
+git rebase master(将master新提交塞到本分支新代码下面) 
+	@解决冲突后直接git add . + git rebase --continue + git pull
+     *rebase失败无法操作可以用   git rebase --abort 返回到rebase之前
+	@再次解决冲突，使用上面操作后前面的代码，后面的舍去，然后(add + 提交 “rebase branch m into d”)
+     *总结：在master上用merge合过来其他分支的代码，在其他分支用rebase将master信代码塞到自己下面
+
+新建本地分支并提交到远程
+git checkout -b aaa
+git push -u origin aaa
+
+删除分支
+git branch -d aaa   (删除本地)
+git push origin --delete aaa（删除远程）
+
+二、提交............................................
+
+git stash
+git pull
+git stash pop
+git add .
+git commit -m 'message'
+git push
+
+三、标签.............................................
+
+
+创建标签
+git tag -a v1.0 -m 'v1.0'
+
+查看标签
+git tag
+
+查看指定标签详细信息
+git show v1.0
+
+提交tag到当前commit
+git push origin --tags
+
+删除标签
+git tag -d v1.0
+git push origin :refs/tags/v1.0（删除远程）
+
+获取远程版本
+git fetch origin tag v1.0
+
+四、撤销..............................................
+
+将暂存区恢复到工作区
+git reset a.html
+
+将工作区文件修改回退到上一次commit
+git checkout a.html
+
+将所有文件回退到上一次commit
+git reset --hard
+
+回退到指定commit
+git reset --hard commitid
+git push -f（强行回退指定commit）

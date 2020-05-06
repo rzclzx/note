@@ -1,0 +1,35 @@
+1、修改hosts：
+	c-window-system32-drivers-etc-hosts     
+	选中左上角文件  管理员方式打开    
+	notepad hosts  webpack 将localhost改为配置的域名
+2、nginx：
+           windows：
+	@下载：http://nginx.org/en/download.html
+	@进入nginx  start nginx.exe  (nginx已经启动)
+	@打开config/nginx.conf  修改配置
+	@配置环境变量
+	@启动start nginx
+	@关闭nginx -s stop
+	@重启nginx -s reload
+	@location / {
+                          root   html/dist;	                     (index.html文件位置)
+                          index  index.html index.htm;
+                          try_files $uri $uri/ /index.html;           (history模式加入配置)
+                    }
+           linux：
+	@安装前置依赖
+		yum install gcc
+		yum install pcre-devel  
+		yum install zlib zlib-devel
+		yum install openssl openssl-devel
+	@下载             wget http://nginx.org/download/nginx-1.12.2.tar.gz
+	@解压             tar -xvf nginx-1.12.2.tar.gz 
+	@进入             cd nginx-1.12.2
+	@安装            
+		./configure --prefix=/home/work/your nginx/nginx-port  (指定安装目录)
+		 make && make install    （如果没有上面配置 默认安装在/usr/local/nginx）
+	@启动
+		进入/usr/local/nginx/sbin    
+		@启动： ./nginx   重启：./nginx -s reload   停止 ./nginx -s stop
+	@开机启动：vim /etc/rc.d/rc.local
+		加入代码：/usr/local/nginx-1.12.2/sbin/nginx
