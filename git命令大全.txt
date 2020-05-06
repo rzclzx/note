@@ -4,14 +4,14 @@ ssh-keygen -t rsa -C "youremail@example.com"
 首次提交
 如果冲突 git pull origin master --allow-unrelated-histories
 git init
-git remote add origin git@gitlab.com:zhangfeizx/aaa.git
+git remote add origin git@gitlab.com:aaa/aaa.git
 git add .
 git commit -m 'message'
 git push -u origin master
 
 新加/更改远程地址
-	@新加：git remote add origin git@gitlab.com:zhangfeizx/aaa.git
-	@更改：git remote set-url origin http://192.168.100.235:9797/john/git_test.git
+	@新加：git remote add origin git@gitlab.com:aaa/aaa.git
+	@更改：git remote set-url origin http://aaa/john/git_test.git
 
 
 一、分支..........................................
