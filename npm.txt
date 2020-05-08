@@ -1,0 +1,5 @@
+1、npm link建立连接
+	@进入依赖项目 npm i安装i
+	@npm link 打开连接（需要配置）
+	@进入开发项目 npm link common
+	@启动即可
