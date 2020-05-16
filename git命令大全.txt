@@ -17,7 +17,10 @@ git push -u origin master
 一、分支..........................................
 
 查看分支
-git branch -a     
+git branch -a 
+
+查看远程地址
+git remote -v     
 
 切换分支
 git checkout aaa(切换)
