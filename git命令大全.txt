@@ -21,7 +21,10 @@ git stash list 查看
 git stash drop stash@{0} 删除第一条
 
 查看分支
-git branch -a     
+git branch -a 
+
+查看远程地址
+git remote -v     
 
 切换分支
 git checkout aaa(切换)
