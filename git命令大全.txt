@@ -30,6 +30,10 @@ git remote -v
 git checkout aaa(切换)
 git checkout -b aaa（创建并切换）
 
+切换到指定commit
+git checkout commitId   （切到指定commitid）
+git checkout master  （切换回最新分支，切当前分支即可回到最新提交）
+
 合并分支
 git merge dev（将dev合并到当前所在分支master）(解决冲突后提交信息为merge branch dev into master)
 
