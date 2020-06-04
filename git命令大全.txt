@@ -48,6 +48,9 @@ git rebase master(将master新提交塞到本分支新代码下面)
 git checkout -b aaa
 git push -u origin aaa
 
+如果已经有远程分支，而本地没有直接：
+git checkout net （切换并拉去别人的远程分支）
+
 删除分支
 git branch -d aaa   (删除本地)
 git push origin --delete aaa（删除远程）
@@ -86,14 +89,17 @@ git fetch origin tag v1.0
 四、撤销..............................................
 
 将暂存区恢复到工作区
-git reset a.html
+git reset a.html （add之后恢复到add之前）
 
 将工作区文件修改回退到上一次commit
-git checkout a.html
+git checkout a.html（没有add的文件回退到上一次commit）
 
 将所有文件回退到上一次commit
-git reset --hard
+git reset --soft/hard （不加HEAD^或者commitId,则对于已经commit的状态没有效果）
 
-回退到指定commit
-git reset --hard commitid
+如果已经commit，想取消commit
+git reset --soft(不回退add状态) HEAD^/commitID (撤销最后一次/撤销到指定commitid)
+
+回退到指定commit（和上面的区别在于soft和hard）
+git reset --hard(回退所有状态) commitid
 git push -f（强行回退指定commit）
