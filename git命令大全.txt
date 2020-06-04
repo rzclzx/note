@@ -42,6 +42,7 @@ git rebase master(将master新提交塞到本分支新代码下面)
      *rebase失败无法操作可以用   git rebase --abort 返回到rebase之前
 	@再次解决冲突，使用上面操作后前面的代码，后面的舍去，然后(add + 提交 “rebase branch m into d”)
      *总结：在master上用merge合过来其他分支的代码，在其他分支用rebase将master信代码塞到自己下面
+      （劲量用merge代替rebase）
 
 新建本地分支并提交到远程
 git checkout -b aaa
