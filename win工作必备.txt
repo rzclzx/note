@@ -16,6 +16,11 @@
                           index  index.html index.htm;
                           try_files $uri $uri/ /index.html;           (history模式加入配置)
                     }
+	@location ^~/anti {                （contextpath配置方法，nginx包下新建anti文件夹，下面放dist）
+            		alias   ./anti/dist;
+            		index index.html;
+            		try_files $uri $uri/ /anti/index.html;
+                    }
            linux：
 	@安装前置依赖
 		yum install gcc
