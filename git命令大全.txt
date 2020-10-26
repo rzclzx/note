@@ -49,8 +49,7 @@ git checkout -b aaa
 git push -u origin aaa
 
 如果已经有远程分支，而本地没有直接：
-git checkout net （切换并拉去别人的远程分支）
-git pull origin net
+git checkout net （切换并拉去别人的远程分支，不要加-b）
 
 删除分支
 git branch -d aaa   (删除本地)
