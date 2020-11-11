@@ -58,4 +58,4 @@
                                            root   html;
                                       }
                                  }
-	@查看磁盘空间df -h /tmp
+	@查看磁盘空间df -h ./
