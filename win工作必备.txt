@@ -21,6 +21,7 @@
             		index index.html;
             		try_files $uri $uri/ /anti/index.html;
                     }
+	@查看8000端口占用：netstat -aon|findstr "8000"  查看占用8000的 pid号， 任务管理器查pid进程
            linux：
 	@安装前置依赖
 		yum install gcc
