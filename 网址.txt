@@ -1,1 +1,3 @@
-el-admin后台管理系统前后端   https://el-admin.vip/guide/
+el-admin后台管理系统前后端：   https://el-admin.vip/guide/
+
+spring boot 目录结构规范：  https://blog.csdn.net/SKS_IT/article/details/103813624
