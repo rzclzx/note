@@ -1,1 +1,2 @@
 1、全文替换：Ctrl+Shift+R
+2、去掉文件红线报错：下载插件lombok     file-settings-plugins
