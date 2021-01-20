@@ -1,0 +1,41 @@
+1、nginx：
+	@安装前置依赖
+		yum install gcc
+		yum install pcre-devel  
+		yum install zlib zlib-devel
+		yum install openssl openssl-devel
+	@下载             wget http://nginx.org/download/nginx-1.12.2.tar.gz
+	@解压             tar -xvf nginx-1.12.2.tar.gz 
+	@进入             cd nginx-1.12.2
+	@安装            
+		./configure --prefix=/home/work/your nginx/nginx-port  (指定安装目录)
+		 make && make install    （如果没有上面配置 默认安装在/usr/local/nginx）
+	@启动
+		进入/usr/local/nginx/sbin    
+		@启动： ./nginx   重启：./nginx -s reload   停止 ./nginx -s stop
+	@开机启动：vim /etc/rc.d/rc.local
+		加入代码：/usr/local/nginx-1.12.2/sbin/nginx
+
+
+	@反向代理
+		server {
+                                     listen       8098;
+                                     server_name  localhost;
+                                     location / {
+                                         root   ../processing/dist;
+                                         index  index.html index.htm;
+                                         try_files $uri $uri/ /index.html;
+                                      }
+                                      location /processing {
+                                            rewrite ^.+processing/?(.*)$ /$1 break;
+                                            proxy_pass http://localhost:6443;
+                                      }
+                                      error_page   500 502 503 504  /50x.html;
+                                      location = /50x.html {
+                                           root   html;
+                                      }
+                                 }
+2、常用命令
+	@查看磁盘空间df -h ./
+	@查看当前完整路径pwd
+	@替换sed -i "s/(192.168.1.54:7982)被/(192.168.1.54:7980)想换/g" `grep (192.168.1.54:7982)被 -rl ./`
