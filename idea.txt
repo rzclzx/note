@@ -1,2 +1,7 @@
 1、全文替换：Ctrl+Shift+R
 2、去掉文件红线报错：下载插件lombok     file-settings-plugins
+3、根据数据库用jpa生成实体：
+	@view->Tool Windows->Persistence
+	@File->project structure->Modules add jpa
+	@左下角 persistence窗口->右键对应文件夹->Generate Persistence Mapping->By Database Schema
+	@1、General Settings: 选择数据库->新增方式 2、Generation Settings 只勾选Generate JPA Annotations(java5)
