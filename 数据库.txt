@@ -1,3 +1,9 @@
 一、新建数据库
 	1、字符集：utf8
 	2、排序规则：utf8_general_ci
+二、dbeaver 驱动下载失败
+	菜单栏=》窗口-》首选项-》DBeaver-》驱动-》Maven
+
+	添加 阿里云  maven镜像
+
+	http://maven.aliyun.com/nexus/content/repositories/central/
