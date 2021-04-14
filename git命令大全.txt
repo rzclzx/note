@@ -20,8 +20,11 @@ git push -u origin master
 git fetch -p origin
 
 本地缓存仓库
+git stash
 git stash list 查看
-git stash drop stash@{0} 删除第一条
+git stash pop stash@{0} 取出第一条 （默认最后一条stash@{0}）
+git stash drop stash@{0} 删除第一条 （默认丢弃最后一条stash@{0}）
+git stash clear 清除所有
 
 查看分支
 git branch -a 
