@@ -14,11 +14,13 @@
                           root   html/dist;	                     (index.html文件位置)
                           index  index.html index.htm;
                           try_files $uri $uri/ /index.html;           (history模式加入配置)
+	          add_header Cache-Control no-cache; （去掉缓存）
                     }
 	@location ^~/anti {                （contextpath配置方法，nginx包下新建anti文件夹，下面放dist）
             		alias   ./anti/dist;
             		index index.html;
             		try_files $uri $uri/ /anti/index.html;
+		add_header Cache-Control no-cache; （去掉缓存）
                     }
 3、常用命令
 	@查看8000端口占用：netstat -aon|findstr "8000"  查看占用8000的 pid号， 任务管理器查pid进程

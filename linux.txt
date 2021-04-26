@@ -25,6 +25,7 @@
                                          root   ../processing/dist;
                                          index  index.html index.htm;
                                          try_files $uri $uri/ /index.html;
+		         add_header Cache-Control no-cache; （去掉缓存）
                                       }
                                       location /processing {
                                             rewrite ^.+processing/?(.*)$ /$1 break;
