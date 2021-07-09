@@ -18,36 +18,36 @@
 
 
 	@反向代理
-server {
-    listen       8088;
-    server_name  localhost;
-    location / {
-        root   /usr/local/aaa/dist;
-        index  index.html index.htm;
-        try_files $uri $uri/ /index.html;
-        add_header Cache-Control no-cache;
-    }
-    location /base-api/ {
-        proxy_pass http://88.88.11.11:9090/;
-        proxy_redirect off;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_http_version 1.1;
-        proxy_set_header Connection "";
-    }
-    location /bbb-amll/ {
-        proxy_pass http://88.88.1.58:9999/bbb/;
-        proxy_redirect off;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header Host $http_host;
-        proxy_http_version 1.1;
-        proxy_set_header Connection "";
-    }
-    error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
-        }
-}
+  server {
+      listen       8088;
+      server_name  localhost;
+      location / {
+          root   /usr/local/aaa/dist;
+          index  index.html index.htm;
+          try_files $uri $uri/ /index.html;
+          add_header Cache-Control no-cache;
+      }
+      location /base-api/ {
+          proxy_pass http://88.88.11.11:9090/;
+          proxy_redirect off;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header Host $http_host;
+          proxy_http_version 1.1;
+          proxy_set_header Connection "";
+      }
+      location /bbb-amll/ {
+          proxy_pass http://88.88.1.58:9999/bbb/;
+          proxy_redirect off;
+          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+          proxy_set_header Host $http_host;
+          proxy_http_version 1.1;
+          proxy_set_header Connection "";
+      }
+      error_page   500 502 503 504  /50x.html;
+          location = /50x.html {
+              root   html;
+          }
+  }
 2、常用命令
 	@查看磁盘空间df -h ./
 	@查看当前完整路径pwd
