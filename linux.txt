@@ -52,3 +52,20 @@
 	@查看磁盘空间df -h ./
 	@查看当前完整路径pwd
 	@替换sed -i "s/(192.168.1.54:7982)被/(192.168.1.54:7980)想换/g" `grep (192.168.1.54:7982)被 -rl ./`
+	
+3、tomcat:
+  1、https://mirrors.cnnic.cn/apache/tomcat 下载
+  2、tar zxvf apache-tomcat-7.0.67.tar.gz
+  3、重命名 mv apache-tomcat-7.0.67 tomcat7
+  4、conf server.xml  修改端口
+  5、./startup.sh启动 ./shutdown.sh关闭命令
+  6、<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-app_2_5.xsd"
+             id="scplatform" version="2.5">
+      <display-name>/</display-name>
+      <error-page>
+        <error-code>404</error-code>
+        <location>/index.html</location>
+      </error-page>
+    </web-app>
