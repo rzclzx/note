@@ -69,3 +69,6 @@
         <location>/index.html</location>
       </error-page>
     </web-app>
+  7、<Context path="/" reloadable="true" docBase="../webapps/ROOT"></Context>
+    <Context path="/aaa" reloadable="true" docBase="../webapps/aaa-service"></Context>
+    <Context path="/bbb" reloadable="true" docBase="../webapps/sm-service"></Context>
