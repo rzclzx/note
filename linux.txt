@@ -58,7 +58,7 @@
   2、tar zxvf apache-tomcat-7.0.67.tar.gz
   3、重命名 mv apache-tomcat-7.0.67 tomcat7
   4、conf server.xml  修改端口
-  5、./startup.sh启动 ./shutdown.sh关闭命令
+  5、./startup.sh启动 ./shutdown.sh关闭命令  查看是否启动 ps -ef | grep java   杀死  kill -9 22260
   6、<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-app_2_5.xsd"
