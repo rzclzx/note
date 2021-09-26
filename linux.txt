@@ -18,6 +18,7 @@
 
 
 	@反向代理
+  client_max_body_size 4096M; // 文件上传限制
   server {
       listen       8088;
       server_name  localhost;
