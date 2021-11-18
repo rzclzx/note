@@ -108,7 +108,7 @@ git reset --soft head^
 
 回退到上一次/指定commit（和上面的区别在于soft和hard）
 git reset --hard(hard编辑之前上一次commit) head^/commitID(撤销最后一次/撤销到指定commitid)
-git push -f（强行回退指定commit）
+git push -f（强行回退指定commit） （gitlab setting 设置允许force提交）
 
 删除新增文件和文件夹
 git clean -xdf
