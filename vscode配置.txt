@@ -1,13 +1,12 @@
 {
-    "editor.tabSize": 2,
+    "vetur.format.defaultFormatterOptions": {
+        "prettier": {
+            "semi": false,
+            "singleQuote": true
+        }
+    },
     "[vue]": {
         "editor.defaultFormatter": "hikerpig.vetur"
     },
-    "window.zoomLevel": 0,
     "editor.fontSize": 20,
-    "vetur.format.defaultFormatterOptions": {
-        "prettier": {
-            "semi": false
-        }
-    }
 }
