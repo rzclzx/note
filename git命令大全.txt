@@ -1,6 +1,10 @@
 生成ssh
 ssh-keygen -t rsa -C "youremail@example.com"
 
+配置名称和邮箱
+git config --global user.name "Your Name"
+git config --global user.email you@example.com
+
 首次提交
 如果冲突 git pull origin master --allow-unrelated-histories
 git init
