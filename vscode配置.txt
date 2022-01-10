@@ -9,4 +9,5 @@
         "editor.defaultFormatter": "hikerpig.vetur"
     },
     "editor.fontSize": 20,
+	"editor.tabSize": 2
 }
