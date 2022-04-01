@@ -1,3 +1,15 @@
 1、@进入依赖项目，切换dev分支， 输入npm i，安装完毕输入npm link
      @进入开发项目npm install， 输入npm link onestop-common依赖字段
      @npm run dev即可启动
+	 
+2、安装私有前端依赖
+	@gitlab新建一个组，名为web
+	@组里新建一个项目，名为web-ui
+	@进入web-ui，npm init --scope=web 生成 package.json 文件
+	@提交
+	
+	@在开发项目中package.json devDependencies中添加  "@web/web-ui": "git+ssh://....."
+	@npm install   首次安装
+	@npm update @web/web-ui  更新依赖
+	@项目中使用  import Table from '@web/web-ui/Table'
+
