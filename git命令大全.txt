@@ -78,7 +78,7 @@ git push
 
 
 创建标签
-git tag -a v1.0 -m 'v1.0'
+git tag -a v1.0 -m 'v1.0' commitID(无id则最后一次提交)
 
 查看标签
 git tag
