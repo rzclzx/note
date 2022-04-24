@@ -7,7 +7,7 @@
 	@进入webaaa，package.json   name: webaaa, main: "./package/webaaa.js"
 	@用webpack打包  （具体查看历史组件，定义webpack.config.js; .babelrc; index.js（组件install） 入口文件  ）
 	
-	@在开发项目中package.json devDependencies中添加  git+https://<token-name>:<token>@gitlab.com/Username/Repository#{branch|tag}
+	@在开发项目中package.json devDependencies中添加  git+https://<token-name>:<token>@gitlab.com/Username/Repository#v1.0   （#v1.0）拉去指定tag
 	@npm update webaaa  安装或更新都用这个
 	@项目中使用  import webaaa(随便写) from 'webaaa'
 
