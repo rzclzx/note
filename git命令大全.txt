@@ -30,6 +30,9 @@ git stash pop stash@{0} 取出第一条 （默认最后一条stash@{0}）
 git stash drop stash@{0} 删除第一条 （默认丢弃最后一条stash@{0}）
 git stash clear 清除所有
 
+将指定提交应用于当前分支
+git cherry-pick <commitHash>
+
 查看分支
 git branch -a 
 
@@ -62,7 +65,7 @@ git push -u origin aaa
 git checkout net （切换并拉去别人的远程分支，不要加-b）
 
 删除分支
-git branch -d aaa   (删除本地)
+git branch -D aaa   (删除本地)
 git push origin --delete aaa（删除远程）
 
 二、提交............................................
