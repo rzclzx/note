@@ -50,6 +50,27 @@
               root   html;
           }
   }
+  // bad request 400
+  server {
+      listen       8298;
+      server_name  localhost;
+      location / {
+          root   /usr/local/seer/dist;
+          index  index.html index.htm;
+          try_files $uri $uri/ /index.html;
+          add_header Cache-Control no-cache;
+      }
+      location /base-api/ {
+          proxy_pass http://172.20.81.50:8000/;
+          proxy_http_version 1.1;
+          proxy_set_header Upgrade $http_upgrade;
+          proxy_set_header Connection "upgrade";
+      }
+      error_page   500 502 503 504  /50x.html;
+          location = /50x.html {
+              root   html;
+          }
+  }
 2、常用命令
 	@查看磁盘空间df -h ./
 	@查看当前完整路径pwd
