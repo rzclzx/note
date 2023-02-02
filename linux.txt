@@ -17,60 +17,99 @@
 		加入代码：/usr/local/nginx-1.12.2/sbin/nginx
 
 
-	@反向代理
-  client_max_body_size 4096M; // 文件上传限制
-  proxy_max_temp_file_size 5000m; // 文件下载限制
-  server {
-      listen       8088;
-      server_name  localhost;
-      location / {
-          root   /usr/local/aaa/dist;
-          index  index.html index.htm;
-          try_files $uri $uri/ /index.html;
-          add_header Cache-Control no-cache;
-      }
-      location /base-api/ {
-          proxy_pass http://88.88.11.11:9090/;
-          proxy_redirect off;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header Host $http_host;
-          proxy_http_version 1.1;
-          proxy_set_header Connection "";
-      }
-      location /bbb-amll/ {
-          proxy_pass http://88.88.1.58:9999/bbb/;
-          proxy_redirect off;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header Host $http_host;
-          proxy_http_version 1.1;
-          proxy_set_header Connection "";
-      }
-      error_page   500 502 503 504  /50x.html;
-          location = /50x.html {
-              root   html;
-          }
-  }
-  // bad request 400
-  server {
-      listen       8298;
-      server_name  localhost;
-      location / {
-          root   /usr/local/seer/dist;
-          index  index.html index.htm;
-          try_files $uri $uri/ /index.html;
-          add_header Cache-Control no-cache;
-      }
-      location /base-api/ {
-          proxy_pass http://172.20.81.50:8000/;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection "upgrade";
-      }
-      error_page   500 502 503 504  /50x.html;
-          location = /50x.html {
-              root   html;
-          }
-  }
+	@nginx代理
+	client_max_body_size 4096M; // 文件上传限制
+	proxy_max_temp_file_size 5000m; // 文件下载限制
+	// 配置1
+	server {
+		listen       8191;
+		server_name  localhost;
+		location / {
+			try_files $uri $uri/ /index.html;
+			root   /aaa/dist;
+			add_header Cache-Control no-cache;
+			index  index.html index.htm;
+		}
+		location /base-api/ {
+			proxy_pass http://88.88.1.58:9999/;
+			proxy_connect_timeout   120;
+			proxy_send_timeout      120;
+			proxy_read_timeout      120;
+			proxy_buffer_size       128k;
+			proxy_buffers           2048 1024k;
+			proxy_busy_buffers_size 1024k;
+			proxy_temp_file_write_size 1024k;
+		}
+		location /base-api2/ {
+			proxy_pass http://88.88.1.58:9999/ccc/;
+			proxy_connect_timeout   120;
+			proxy_send_timeout      120;
+			proxy_read_timeout      120;
+			proxy_buffer_size       128k;
+			proxy_buffers           2048 1024k;
+			proxy_busy_buffers_size 1024k;
+			proxy_temp_file_write_size 1024k;
+		}
+		location @router{
+			rewrite ^.*$ /index.html last;
+		}
+		error_page   500 502 503 504  /50x.html;
+		location = /50x.html {
+			root   html;
+		}
+	}
+	// 配置2
+	server {
+		listen       8088;
+		server_name  localhost;
+		location / {
+			root   /usr/local/aaa/dist;
+			index  index.html index.htm;
+			try_files $uri $uri/ /index.html;
+			add_header Cache-Control no-cache;
+		}
+		location /base-api/ {
+			proxy_pass http://88.88.11.11:9090/;
+			proxy_redirect off;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			proxy_set_header Host $http_host;
+			proxy_http_version 1.1;
+			proxy_set_header Connection "";
+		}
+		location /bbb-amll/ {
+			proxy_pass http://88.88.1.58:9999/bbb/;
+			proxy_redirect off;
+			proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+			proxy_set_header Host $http_host;
+			proxy_http_version 1.1;
+			proxy_set_header Connection "";
+		}
+		error_page   500 502 503 504  /50x.html;
+			location = /50x.html {
+			root   html;
+		}
+	}
+	// bad request 400
+	server {
+		listen       8298;
+		server_name  localhost;
+		location / {
+			root   /usr/local/seer/dist;
+			index  index.html index.htm;
+			try_files $uri $uri/ /index.html;
+			add_header Cache-Control no-cache;
+		}
+		location /base-api/ {
+			proxy_pass http://172.20.81.50:8000/;
+			proxy_http_version 1.1;
+			proxy_set_header Upgrade $http_upgrade;
+			proxy_set_header Connection "upgrade";
+		}
+		error_page   500 502 503 504  /50x.html;
+			location = /50x.html {
+			root   html;
+		}
+	}
 2、常用命令
 	@查看磁盘空间df -h ./
 	@查看当前完整路径pwd
