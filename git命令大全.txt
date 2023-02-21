@@ -13,6 +13,12 @@ git add .
 git commit -m 'message'
 git push -u origin master
 
+解决冲突
+git commit --no-verify
+npx prettier --write src/
+npx eslint --fix src/**/*.vue
+npx eslint --fix src/**/*.js
+
 新加/更改远程地址
 	@新加：git remote add origin git@gitlab.com:aaa/aaa.git
 	@更改：git remote set-url origin http://aaa/john/git_test.git
