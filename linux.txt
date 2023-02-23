@@ -40,16 +40,6 @@
 			proxy_busy_buffers_size 1024k;
 			proxy_temp_file_write_size 1024k;
 		}
-		location /base-api2/ {
-			proxy_pass http://88.88.1.58:9999/ccc/;
-			proxy_connect_timeout   120;
-			proxy_send_timeout      120;
-			proxy_read_timeout      120;
-			proxy_buffer_size       128k;
-			proxy_buffers           2048 1024k;
-			proxy_busy_buffers_size 1024k;
-			proxy_temp_file_write_size 1024k;
-		}
 		location @router{
 			rewrite ^.*$ /index.html last;
 		}
