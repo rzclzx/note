@@ -23,6 +23,8 @@ npx eslint --fix src/**/*.js
 	@新加：git remote add origin git@gitlab.com:aaa/aaa.git
 	@更改：git remote set-url origin http://aaa/john/git_test.git
 
+查看代码行数
+cloc --exclude-dir=node_modules,public,dist src
 
 一、分支..........................................
 
@@ -131,4 +133,15 @@ git push -f（强行回退指定commit） （gitlab setting 设置允许force提交）
 
 删除新增文件和文件夹
 git clean -xdf
+
+二、xshell命令
+1、vi模式放弃本次编辑
+:e!
+enter
+:q
+
+三、其他
+1、nvm管理node
+nvm list 查看node list版本
+nvm use 使用哪个版本
 
