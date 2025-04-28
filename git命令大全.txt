@@ -145,3 +145,7 @@ enter
 nvm list 查看node list版本
 nvm use 使用哪个版本
 
+2、设置淘宝镜像
+设置 npm config set registry https://registry.npmmirror.com
+查看 npm config get registry
+
